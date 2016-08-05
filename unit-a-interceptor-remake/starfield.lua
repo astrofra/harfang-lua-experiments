@@ -3,16 +3,16 @@
 max_stars = 0
 particle_size = 1.5
 stars = {}
-starfield_size = gs.Vector3(50, 50, 500)
+starfield_size = gs.Vector3(50, 50, 25)
 camera_velocity = gs.Vector3()
 pos_dt = gs.Vector3()
 zoom = 100.0
-camera_pos = gs.Vector3(0, 0, 50)
+camera_pos = gs.Vector3(0, 0, 5)
 
 
 function starfield_init(_max_stars)
 	-- global stars, max_stars, starfield_size
-	max_stars = _max_stars or 500
+	max_stars = _max_stars or 35
 
 	function rand_point_within_size()
 		-- global starfield_size
@@ -52,10 +52,10 @@ function starfield_update(dt)
 		end
 
 		if pos.y > starfield_size.y then
-			pos.y = pos.y - starfield_size.y
+			pos.y = pos.y - 2 * starfield_size.y
 		else
 			if pos.y < -starfield_size.y then
-				pos.y = pos.y + starfield_size.y
+				pos.y = pos.y + 2 * starfield_size.y
 			end
 		end
 
