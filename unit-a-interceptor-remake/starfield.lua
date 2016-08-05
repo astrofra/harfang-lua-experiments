@@ -1,5 +1,7 @@
 -- Starfield 3D
 
+require 'common'
+
 max_stars = 0
 particle_size = 1.5
 stars = {}
@@ -73,14 +75,14 @@ end
 
 function starfield_draw(handler)
 	for i = 1, max_stars do
-		p = 0.2 + (stars[i]['pos'].z / starfield_size.z)
-		p = p * particle_size
+		p = RangeAdjust(stars[i]['pos'].z, -starfield_size.z, starfield_size.z, 0.05, 1.0)
+		p = 1.0 -- - Clamp(p, 0.0, 1.0)
 		a = stars[i]['pos'] + camera_pos
 
 		if a.z ~= 0 then
 			x2d = (a.x  * zoom) / a.z
 			y2d = (a.y  * zoom) / a.z
-			handler:Sprite2D(x2d + (SCR_WIDTH * 0.5), y2d + (SCR_HEIGHT * 0.5), 5.0 * SCR_HEIGHT / 287, "@assets/yellow_star.png", gs.Color.White, -2.5, -2.5, false, false)
+			handler:Sprite2D(x2d + (SCR_WIDTH * 0.5), y2d + (SCR_HEIGHT * 0.5), p * 5.0 * SCR_HEIGHT / 287, "@assets/yellow_star.png", gs.Color.White, -2.5, -2.5, false, false)
 		end
 	end
 end
