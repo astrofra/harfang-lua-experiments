@@ -3,7 +3,7 @@
 require 'common'
 
 max_stars = 0
-particle_size = 1.5
+particle_size = 5.0
 stars = {}
 starfield_size = gs.Vector3(50, 50, 25)
 camera_velocity = gs.Vector3()
@@ -75,14 +75,14 @@ end
 
 function starfield_draw(handler)
 	for i = 1, max_stars do
-		p = RangeAdjust(stars[i]['pos'].z, -starfield_size.z, starfield_size.z, 0.05, 1.0)
-		p = 1.0 -- - Clamp(p, 0.0, 1.0)
+		p = RangeAdjust(stars[i]['pos'].z, starfield_size.z * -0.1, starfield_size.z, 1.0, 0.05)
+		p = Clamp(p, 0.0, 1.0)
 		a = stars[i]['pos'] + camera_pos
 
 		if a.z ~= 0 then
 			x2d = (a.x  * zoom) / a.z
 			y2d = (a.y  * zoom) / a.z
-			handler:Sprite2D(x2d + (SCR_WIDTH * 0.5), y2d + (SCR_HEIGHT * 0.5), p * 5.0 * SCR_HEIGHT / 287, "@assets/yellow_star.png", gs.Color.White, -2.5, -2.5, false, false)
+			handler:Sprite2D(x2d + (SCR_WIDTH * 0.5), y2d + (SCR_HEIGHT * 0.5), p * particle_size * SCR_HEIGHT / 287, "@assets/yellow_star.png", gs.Color.White, -2.5 * p, -2.5 * p, false, false)
 		end
 	end
 end
