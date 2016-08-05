@@ -6,6 +6,8 @@ stars = {}
 starfield_size = gs.Vector3(50, 50, 500)
 camera_velocity = gs.Vector3()
 pos_dt = gs.Vector3()
+zoom = 100.0
+camera_pos = gs.Vector3(0, 0, 50)
 
 
 function starfield_init(_max_stars)
@@ -69,20 +71,16 @@ function starfield_update(dt)
 	end
 end
 
-function starfield_draw(rctx)
-	-- global pos_dt, starfield_size, stars, max_stars
-
+function starfield_draw(handler)
 	for i = 1, max_stars do
 		p = 0.2 + (stars[i]['pos'].z / starfield_size.z)
 		p = p * particle_size
-		a = stars[i]['pos']
-		b = stars[i]['pos'] + gs.Vector3(-p, 0, 0)
-		c = stars[i]['pos'] + gs.Vector3(-p, p, 0)
-		d = stars[i]['pos'] + gs.Vector3(0, p, 0)
-		-- rctx:Line3D(a.x, a.y, a.z, b.x, b.y, b.z, gs.Color.White, gs.Color.White)
-		rctx:Quad3D(a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z, d.x, d.y, d.z, gs.Color.White, gs.Color.White, gs.Color.White, gs.Color.White, nil, 0, 0, 1, 1)
-		-- rctx:Triangle3D(a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z, gs.Color.White, gs.Color.White, gs.Color.White)
-	end
+		a = stars[i]['pos'] + camera_pos
 
-	-- print(pos_a.x, pos_a.y, pos_a.z)
+		if a.z ~= 0 then
+			x2d = (a.x  * zoom) / a.z
+			y2d = (a.y  * zoom) / a.z
+			handler:Sprite2D(x2d + (SCR_WIDTH * 0.5), y2d + (SCR_HEIGHT * 0.5), 5.0 * SCR_HEIGHT / 287, "@assets/yellow_star.png", gs.Color.White, -2.5, -2.5, false, false)
+		end
+	end
 end
