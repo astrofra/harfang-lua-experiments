@@ -25,7 +25,8 @@ gsplus:ResetClock()
 
 play_music()
 
-gsplus:SetBlend2D(gs.BlendAdditive) 
+gsplus:SetBlend2D(gs.BlendAlpha)
+-- gsplus:SetDepthTest2D(false)
 
 while 1 do
 	dt_sec = gsplus:UpdateClock()
