@@ -37,7 +37,7 @@ while 1 do
 	gsplus:Image2D(0, 0, ZOOM_RATIO, "@assets/background.png", gs.Color.White)
 	starfield_update(dt_sec:to_sec())
 	starfield_draw(gsplus)
-	scroll_text_draw(gsplus)
+	scroll_text_draw(gsplus, dt_sec:to_sec())
 
 	gsplus:Flip()
 	gsplus:UpdateClock()
