@@ -25,8 +25,10 @@ function char_to_index(c)
 		return string.byte(c) - string.byte("0")
 	end
 
-	if c == "!" then
-		return 26
+	for i = 1, glypth_list:len() do
+		if glypth_list:sub(i,i) == c then
+			return i - 1
+		end
 	end
 
 	return -1
@@ -41,7 +43,7 @@ function scroll_text_draw(handler, dt)
 		y = scrl_y
 		j = i + char_offset
 		j = j % scroll_text:len()
-		c = char_to_index(scroll_text:sub(j))
+		c = char_to_index(scroll_text:sub(j,j))
 		if c >= 0 then
 			handler:Blit2D(c * gl_w * pixel_size, 0, gl_w * pixel_size, gl_h * pixel_size, x * ZOOM_RATIO, y * ZOOM_RATIO, gl_w * ZOOM_RATIO, gl_h * ZOOM_RATIO, "@assets/ua_font.png", gs.Color.White)
 		end
