@@ -5,6 +5,7 @@ require 'demo_strings'
 
 gl_w = 8
 gl_h = 8
+pixel_size = 2
 
 scrl_x = 0
 scrl_y = 96
@@ -25,7 +26,7 @@ function char_to_index(c)
 	end
 
 	if c == "!" then
-		return 27
+		return 26
 	end
 
 	return -1
@@ -39,10 +40,10 @@ function scroll_text_draw(handler, dt)
 		x = scrl_x - scroll_offset + i * gl_w
 		y = scrl_y
 		j = i + char_offset
-		j = j % string.len(scroll_text)
-		c = char_to_index(string.sub(scroll_text, j))
+		j = j % scroll_text:len()
+		c = char_to_index(scroll_text:sub(j))
 		if c >= 0 then
-			handler:Blit2D(c * gl_w, 0, gl_w, gl_h, x * ZOOM_RATIO, y * ZOOM_RATIO, gl_w * ZOOM_RATIO, gl_h * ZOOM_RATIO, "@assets/ua_font.png", gs.Color.White)
+			handler:Blit2D(c * gl_w * pixel_size, 0, gl_w * pixel_size, gl_h * pixel_size, x * ZOOM_RATIO, y * ZOOM_RATIO, gl_w * ZOOM_RATIO, gl_h * ZOOM_RATIO, "@assets/ua_font.png", gs.Color.White)
 		end
 		i = i + 1
 	end
