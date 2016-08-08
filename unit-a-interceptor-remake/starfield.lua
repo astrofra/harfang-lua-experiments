@@ -3,7 +3,7 @@
 require 'common'
 
 max_stars = 0
-particle_size = 7.0
+particle_size = 5.0
 stars = {}
 starfield_size = gs.Vector3(50, 50, 25)
 camera_velocity = gs.Vector3()
