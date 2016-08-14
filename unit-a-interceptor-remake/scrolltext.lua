@@ -35,7 +35,7 @@ function char_to_index(c)
 	return -1
 end
 
-function scroll_text_draw(handler, dt)
+function scroll_text_draw(dt)
 	i = 0
 	x = 0
 	color_cycle = color_cycle + dt * 30
@@ -51,7 +51,7 @@ function scroll_text_draw(handler, dt)
 		j = j % scroll_text:len()
 		c = char_to_index(scroll_text:sub(j,j))
 		if c >= 0 then
-			handler:Blit2D(math.floor(c * gl_w * pixel_size), 0, math.floor(gl_w * pixel_size), gl_h * pixel_size, x * ZOOM_RATIO, y * ZOOM_RATIO, gl_w * ZOOM_RATIO, gl_h * ZOOM_RATIO, txt_fname, gs.Color.White)
+			gsplus:Blit2D(math.floor(c * gl_w * pixel_size), 0, math.floor(gl_w * pixel_size), gl_h * pixel_size, x * ZOOM_RATIO, y * ZOOM_RATIO, gl_w * ZOOM_RATIO, gl_h * ZOOM_RATIO, txt_fname, gs.Color.White)
 		end
 		i = i + 1
 	end

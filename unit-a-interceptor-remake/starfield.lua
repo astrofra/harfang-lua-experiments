@@ -73,7 +73,7 @@ function starfield_update(dt)
 	end
 end
 
-function starfield_draw(handler)
+function starfield_draw()
 	for i = 1, max_stars do
 		p = RangeAdjust(stars[i]['pos'].z, starfield_size.z * -0.1, starfield_size.z, 1.0, 0.05)
 		p = Clamp(p, 0.0, 1.0)
@@ -82,7 +82,7 @@ function starfield_draw(handler)
 		if a.z ~= 0 then
 			x2d = (a.x  * zoom) / a.z
 			y2d = (a.y  * zoom) / a.z
-			handler:Sprite2D(x2d + (SCR_WIDTH * 0.5), y2d + (SCR_HEIGHT * 0.5), p * particle_size * ZOOM_RATIO, "@assets/yellow_star.png", gs.Color.White, -2.5 * p, -2.5 * p, false, false)
+			gsplus:Sprite2D(x2d + (SCR_WIDTH * 0.5), y2d + (SCR_HEIGHT * 0.5), p * particle_size * ZOOM_RATIO, "@assets/yellow_star.png", gs.Color.White, -2.5 * p, -2.5 * p, false, false)
 		end
 	end
 end
