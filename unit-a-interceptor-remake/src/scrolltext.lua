@@ -42,7 +42,7 @@ function scroll_text_draw(dt)
 	if color_cycle > 9 then
 		color_cycle = 0
 	end
-	txt_fname = "@assets/ua_font_" .. tostring(math.floor(color_cycle)) .. ".png"
+	txt_fname = "assets/ua_font_" .. tostring(math.floor(color_cycle)) .. ".png"
 
 	while x < SCR_WIDTH / ZOOM_RATIO do
 		x = scrl_x - scroll_offset + i * gl_w

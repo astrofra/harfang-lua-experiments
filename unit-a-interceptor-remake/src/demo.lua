@@ -28,7 +28,7 @@ function demo_init()
 	frame_count = 0
 	logo_phase = 0
 
-	logo_tex = gsplus:GetRenderer():LoadTexture("@assets/ua_logo.png")
+	logo_tex = gsplus:GetRenderer():LoadTexture("assets/ua_logo.png")
 
 	starfield_init()
 	starfield_set_camera_velocity(gs.Vector3(0, -75, -25))
@@ -46,7 +46,7 @@ end
 function demo_update(dt)
 	gsplus:SetBlend2D(gs.BlendAlpha)
 	gsplus:SetDepthTest2D(true)
-	gsplus:Image2D((SCR_WIDTH - 1024 * (ZOOM_RATIO / 2)) / 2, 0, ZOOM_RATIO / 2, "@assets/background.png", gs.Color.White)
+	gsplus:Image2D((SCR_WIDTH - 1024 * (ZOOM_RATIO / 2)) / 2, 0, ZOOM_RATIO / 2, "assets/background.png", gs.Color.White)
 	starfield_update(dt_sec:to_sec())
 	starfield_draw()
 	scroll_text_draw(dt_sec:to_sec())

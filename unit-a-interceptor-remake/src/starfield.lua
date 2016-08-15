@@ -82,7 +82,7 @@ function starfield_draw()
 		if a.z ~= 0 then
 			x2d = (a.x  * zoom) / a.z
 			y2d = (a.y  * zoom) / a.z
-			gsplus:Sprite2D(x2d + (SCR_WIDTH * 0.5), y2d + (SCR_HEIGHT * 0.5), p * particle_size * ZOOM_RATIO, "@assets/yellow_star.png", gs.Color.White, -2.5 * p, -2.5 * p, false, false)
+			gsplus:Sprite2D(x2d + (SCR_WIDTH * 0.5), y2d + (SCR_HEIGHT * 0.5), p * particle_size * ZOOM_RATIO, "assets/yellow_star.png", gs.Color.White, -2.5 * p, -2.5 * p, false, false)
 		end
 	end
 end

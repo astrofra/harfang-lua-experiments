@@ -14,7 +14,7 @@ require 'demo'
 DEMO_STATE = resolution_selector
 
 gs.LoadPlugins()
-gs.MountFileDriver(gs.StdFileDriver("assets/"), "@assets/")
+gs.MountFileDriver(gs.StdFileDriver(), "std:")
 
 demo_open_screen()
 resolution_selector_init()
@@ -32,7 +32,7 @@ while 1 do
 
 	DEMO_STATE()
 
-	-- gsplus:Image2D((SCR_WIDTH - 1024 * (ZOOM_RATIO / 2)) / 2, 0, ZOOM_RATIO / 2, "@assets/background.png", gs.Color.White)
+	-- gsplus:Image2D((SCR_WIDTH - 1024 * (ZOOM_RATIO / 2)) / 2, 0, ZOOM_RATIO / 2, "assets/background.png", gs.Color.White)
 	-- starfield_update(dt_sec:to_sec())
 	-- starfield_draw()
 	-- scroll_text_draw(dt_sec:to_sec())
