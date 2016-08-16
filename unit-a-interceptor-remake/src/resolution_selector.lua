@@ -10,7 +10,7 @@ function resolution_selector_init()
 	rs_gui = gs.GetDearImGui()
 
 	rs_check = true
-	rs_combo = 0
+	rs_combo = 6
 end
 
 function set_new_resolution()

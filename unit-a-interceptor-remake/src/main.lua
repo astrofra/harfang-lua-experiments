@@ -5,6 +5,9 @@ SCR_HEIGHT = 300
 ZOOM_RATIO = SCR_HEIGHT / 287
 gsplus = nil
 
+gs.LoadPlugins()
+gs.MountFileDriver(gs.StdFileDriver())
+
 require 'resolution_selector'
 require 'demo_audio'
 require 'starfield'
@@ -12,9 +15,6 @@ require 'scrolltext'
 require 'demo'
 
 DEMO_STATE = resolution_selector
-
-gs.LoadPlugins()
-gs.MountFileDriver(gs.StdFileDriver(), "std:")
 
 demo_open_screen()
 resolution_selector_init()
