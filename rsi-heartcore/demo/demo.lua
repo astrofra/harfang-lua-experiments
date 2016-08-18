@@ -1,3 +1,5 @@
+demo_start_clock = nil
+
 function demo_open_screen()
 	gsplus = gs.GetPlus()
 	gsplus:RenderInit(SCR_WIDTH, SCR_HEIGHT, "pkg.core")
@@ -21,14 +23,16 @@ function demo_init()
 end
 
 function demo_start()
+	print("demo_start()")
 	play_music()
-	gsplus:ResetClock()	
+	-- gsplus:ResetClock()	
+	demo_start_clock = gsplus:GetClock()
 
 	DEMO_STATE = start_demo
 end
 
 function start_demo(dt)
-	DEMO_STATE = fx_hand_update
+	DEMO_STATE = start_fx_hello_outline
 end
 
 function demo_update(dt)

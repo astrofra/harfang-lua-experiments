@@ -1,5 +1,10 @@
 bg_zoom_phase = 0
 
+function start_fx_hand(dt)
+	print("start_fx_hand()")
+	DEMO_STATE = fx_hand
+end
+
 function background_update(dt)
 	gsplus:SetBlend2D(gs.BlendOpaque)
 	gsplus:SetDepthTest2D(true)
@@ -8,7 +13,7 @@ function background_update(dt)
 	gsplus:Image2D((SCR_WIDTH - 2048 * (ZOOM_RATIO * zoom_bg)) / 2, (SCR_HEIGHT - 1365 * (ZOOM_RATIO * zoom_bg)) / 2, ZOOM_RATIO * zoom_bg, "assets/rsio_bg.png", gs.Color.White)
 end
 
-function fx_hand_update(dt)
+function fx_hand(dt)
 	background_update(dt)
 
 	gsplus:SetBlend2D(gs.BlendAlpha)

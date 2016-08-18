@@ -33,7 +33,6 @@ function resolution_selector()
 	if rs_gui:Begin("Select your screen resolution") then
 
 			if rs_gui:Button("Start demo") then
-				print("Demo start")
 				set_new_resolution()
 				DEMO_STATE = set_new_resolution
 				return
