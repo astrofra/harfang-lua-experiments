@@ -2,7 +2,7 @@ demo_start_clock = nil
 
 function demo_open_screen()
 	gsplus = gs.GetPlus()
-	gsplus:RenderInit(SCR_WIDTH, SCR_HEIGHT, "pkg.core")
+	gsplus:RenderInit(SCR_WIDTH, SCR_HEIGHT)
 end
 
 function demo_close_screen()

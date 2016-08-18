@@ -6,6 +6,8 @@ function start_fx_brings_you(dt)
 end
 
 function fx_brings_you(dt, demo_clock)
+	gsplus:Text2D(5, 5, "fx_brings_you")
+
 	if demo_clock > get_fx_end_time('fx_brings_you') then
 		DEMO_STATE = start_fx_hand -- start_fx_heartcore_title
 	end

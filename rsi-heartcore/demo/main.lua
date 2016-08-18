@@ -9,6 +9,7 @@ require 'common'
 require 'resolution_selector'
 require 'demo_audio'
 require 'demo'
+require 'common_fx'
 require 'timings'
 
 require 'fx_hello_outline'
@@ -48,15 +49,8 @@ while 1 do
 		DEMO_STATE(dt_sec, demo_clock)
 	end
 
-	-- gsplus:Image2D((SCR_WIDTH - 1024 * (ZOOM_RATIO / 2)) / 2, 0, ZOOM_RATIO / 2, "assets/background.png", gs.Color.White)
-	-- starfield_update(dt:to_sec())
-	-- starfield_draw()
-	-- scroll_text_draw(dt:to_sec())
-	-- logo_draw(dt:to_sec())
-
 	if gsplus ~= nil then 
 		gsplus:Flip()
-		gsplus:UpdateClock()
 		if demo_start_clock ~= nil then
 			demo_clock = (gsplus:GetClock() - demo_start_clock):to_sec()
 		else
