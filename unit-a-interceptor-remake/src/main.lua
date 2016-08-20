@@ -6,7 +6,10 @@ ZOOM_RATIO = SCR_HEIGHT / 287
 gsplus = nil
 
 gs.LoadPlugins()
-gs.MountFileDriver(gs.StdFileDriver())
+if not gs.is_bootstrapped then
+	print('Mounting local folder as project root.')
+	gs.MountFileDriver(gs.StdFileDriver())
+end
 
 require 'resolution_selector'
 require 'demo_audio'
