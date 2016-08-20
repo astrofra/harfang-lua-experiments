@@ -24,19 +24,15 @@ end
 
 -- play_music()
 
-while 1 do
+exit_code = false
+
+while not exit_code do
 	if gsplus ~= nil then 
 		dt_sec = gsplus:UpdateClock()
 		gsplus:Clear()
 	end
 
-	DEMO_STATE()
-
-	-- gsplus:Image2D((SCR_WIDTH - 1024 * (ZOOM_RATIO / 2)) / 2, 0, ZOOM_RATIO / 2, "assets/background.png", gs.Color.White)
-	-- starfield_update(dt_sec:to_sec())
-	-- starfield_draw()
-	-- scroll_text_draw(dt_sec:to_sec())
-	-- logo_draw(dt_sec:to_sec())
+	exit_code = DEMO_STATE()
 
 	if gsplus ~= nil then 
 		gsplus:Flip()

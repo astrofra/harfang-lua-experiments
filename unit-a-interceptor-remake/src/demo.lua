@@ -4,11 +4,11 @@ function logo_draw(dt)
 	w = 88 * ZOOM_RATIO / 2 
 	h = 72 * ZOOM_RATIO / 2
 	logo_phase = logo_phase + dt
-	w = w * math.abs(math.sin(logo_phase))
-	w = w / 4
-	w = math.floor(w)
-	w = w * 2
-	w = math.max(1, w)
+	w = w * math.abs(math.sin(logo_phase)) / 2
+	-- w = w / 4
+	-- w = math.floor(w)
+	-- w = w * 2
+	-- w = math.max(1, w)
 	gsplus:Quad2D(SCR_WIDTH/2 - w + xo, SCR_HEIGHT/2 + yo, SCR_WIDTH/2 - w + xo, SCR_HEIGHT/2 + h + yo, SCR_WIDTH/2 + w + xo, SCR_HEIGHT/2 + h + yo, SCR_WIDTH/2 + w + xo, SCR_HEIGHT/2 + yo, gs.Color.White, gs.Color.White, gs.Color.White, gs.Color.White, logo_tex, 0,0,1,1) 
 end
 
@@ -51,4 +51,9 @@ function demo_update(dt)
 	starfield_draw()
 	scroll_text_draw(dt_sec:to_sec())
 	logo_draw(dt_sec:to_sec())
+	if gsplus:IsAppEnded() then
+		return true
+	else
+		return false
+	end
 end
