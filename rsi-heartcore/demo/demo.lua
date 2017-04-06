@@ -1,4 +1,5 @@
 demo_start_clock = nil
+demo_is_starting = true
 
 function demo_open_screen()
 	gsplus = gs.GetPlus()
@@ -20,6 +21,7 @@ function demo_init()
 
 
 	DEMO_STATE = demo_start
+	demo_is_starting = false
 end
 
 function demo_start()

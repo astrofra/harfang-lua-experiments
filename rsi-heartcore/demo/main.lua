@@ -38,7 +38,7 @@ function print_time(demo_clock)
 	prev_clock_sec = clock_sec
 end
 
-while 1 do
+while demo_is_starting or (gsplus ~= nil and not gsplus:IsAppEnded()) do
 	if gsplus ~= nil then 
 		dt = gsplus:UpdateClock()
 		gsplus:Clear()
